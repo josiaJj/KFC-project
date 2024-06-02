@@ -5,3 +5,7 @@ CREATE TABLE "dishPrices" (
     "sellingPrice" FLOAT,
     "dishId" INT REFERENCES dish(id)
 );
+
+INSERT INTO "dishPrices" ("costPrice", "sellingPrice", "dishId")
+VALUES (3750, 5000, 2),
+       (4200, 7000, 1);
