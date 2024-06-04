@@ -8,8 +8,6 @@ import school.hei.kfc.kfcproject.service.RestaurantService;
 import java.sql.SQLException;
 import java.util.List;
 
-import static school.hei.kfc.kfcproject.repository.conf.ConnectionDB.getConnection;
-
 @RequestMapping("/restaurants")
 public class RestaurantController {
     public final RestaurantService restaurantService;

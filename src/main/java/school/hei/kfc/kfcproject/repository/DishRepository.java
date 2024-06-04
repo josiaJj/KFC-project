@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
+
 public class DishRepository implements CrudOperationsInterface<Dish> {
     @Override
     public List<Dish> findAll() {
@@ -18,7 +20,7 @@ public class DishRepository implements CrudOperationsInterface<Dish> {
         String sql = "select * from \"dish\"";
 
         try (
-                Connection connection = ConnectionDB.getConnection();
+                Connection connection = getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
         ) {

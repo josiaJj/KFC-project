@@ -1,5 +1,6 @@
 package school.hei.kfc.kfcproject.repository.conf;
 
+import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 
 import java.sql.Connection;
@@ -11,7 +12,7 @@ public class ConnectionDB {
 
     public ConnectionDB(ConnectionProperties connectionProperties) {
         this.connectionProperties = connectionProperties;
-    }
+    };
 
     @Bean
     public Connection getConnection() throws SQLException {

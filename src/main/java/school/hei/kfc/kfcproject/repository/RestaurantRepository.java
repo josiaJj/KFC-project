@@ -12,6 +12,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
+
 @Repository
 @NoArgsConstructor
 public class RestaurantRepository implements CrudOperationsInterface<Restaurant> {
@@ -20,10 +22,10 @@ public class RestaurantRepository implements CrudOperationsInterface<Restaurant>
     public List<Restaurant> findAll() {
         List<Restaurant> restaurantList = new ArrayList<>();
 
-        String sql = "select * from restaurant";
+        String sql = "select * from \"restaurant\"";
 
         try (
-                Connection connection = ConnectionDB.getConnection();
+                Connection connection = getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 ) {
