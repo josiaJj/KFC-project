@@ -11,7 +11,10 @@ import java.util.List;
 import static java.sql.DriverManager.getConnection;
 
 public class IngredientRepository implements CrudOperationsInterface<Ingredient> {
-    ConnectionDB connectionDB;
+    private final ConnectionDB connectionDB;
+    public IngredientRepository(ConnectionDB connectionDB) {
+        this.connectionDB = connectionDB;
+    }
     @Override
     public List<Ingredient> findAll() {
         List<Ingredient> ingredientList = new ArrayList<>();
