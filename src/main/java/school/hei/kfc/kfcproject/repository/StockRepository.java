@@ -11,7 +11,7 @@ public class StockRepository implements CrudOperationsInterface<Stock> {
 
     @Override
     public List<Stock> findAll() {
-        List<Dish> stockList = new ArrayList<>();
+        List<Stock> stockList = new ArrayList<>();
 
         String sql = "select * from \"stock\"";
 
