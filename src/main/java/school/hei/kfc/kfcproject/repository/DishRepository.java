@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DishRepository implements CrudOperationsInterface<Dish> {
-    ConnectionDB connectionDB;
+    private final ConnectionDB connectionDB;
+    public DishRepository(ConnectionDB connectionDB) {
+        this.connectionDB = connectionDB;
+    }
     @Override
     public List<Dish> findAll() {
         List<Dish> dishList = new ArrayList<>();
