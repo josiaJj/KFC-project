@@ -5,10 +5,7 @@ import org.springframework.stereotype.Repository;
 import school.hei.kfc.kfcproject.model.Restaurant;
 import school.hei.kfc.kfcproject.repository.conf.ConnectionDB;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class RestaurantRepository implements CrudOperationsInterface<Restaurant>
         String sql = "select * from \"restaurant\"";
 
         try (
-                Connection connection = getConnection();
+                Connection connection = DriverManager.getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 ) {
