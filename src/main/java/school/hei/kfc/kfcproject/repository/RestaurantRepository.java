@@ -12,8 +12,14 @@ import java.util.List;
 import static java.sql.DriverManager.getConnection;
 
 @Repository
-@NoArgsConstructor
+
 public class RestaurantRepository implements CrudOperationsInterface<Restaurant> {
+
+    private final ConnectionDB connectionDB;
+
+    public RestaurantRepository(ConnectionDB connectionDB) {
+        this.connectionDB = connectionDB;
+    }
 
     @Override
     public List<Restaurant> findAll() {
@@ -22,7 +28,7 @@ public class RestaurantRepository implements CrudOperationsInterface<Restaurant>
         String sql = "select * from \"restaurant\"";
 
         try (
-                Connection connection = DriverManager.getConnection();
+                Connection connection = connectionDB.getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 ) {
