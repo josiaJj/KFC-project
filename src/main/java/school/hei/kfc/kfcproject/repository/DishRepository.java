@@ -3,10 +3,7 @@ package school.hei.kfc.kfcproject.repository;
 import school.hei.kfc.kfcproject.model.Dish;
 import school.hei.kfc.kfcproject.repository.conf.ConnectionDB;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class DishRepository implements CrudOperationsInterface<Dish> {
         String sql = "select * from \"dish\"";
 
         try (
-                Connection connection = getConnection();
+                Connection connection = DriverManager.getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
         ) {
