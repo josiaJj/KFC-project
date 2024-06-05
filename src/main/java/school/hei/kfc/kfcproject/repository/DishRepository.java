@@ -7,9 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.sql.DriverManager.getConnection;
-
 public class DishRepository implements CrudOperationsInterface<Dish> {
+    ConnectionDB connectionDB;
     @Override
     public List<Dish> findAll() {
         List<Dish> dishList = new ArrayList<>();
@@ -17,9 +16,9 @@ public class DishRepository implements CrudOperationsInterface<Dish> {
         String sql = "select * from \"dish\"";
 
         try (
-                Connection connection = DriverManager.getConnection();
+                Connection connection = connectionDB.getConnection();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
+                ResultSet resultSet = statement.executeQuery(sql)
         ) {
             while(resultSet.next()) {
                 Dish dish = new Dish();

@@ -2,6 +2,7 @@ package school.hei.kfc.kfcproject.repository;
 
 import school.hei.kfc.kfcproject.model.Dish;
 import school.hei.kfc.kfcproject.model.Ingredient;
+import school.hei.kfc.kfcproject.repository.conf.ConnectionDB;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 import static java.sql.DriverManager.getConnection;
 
 public class IngredientRepository implements CrudOperationsInterface<Ingredient> {
-
+    ConnectionDB connectionDB;
     @Override
     public List<Ingredient> findAll() {
         List<Ingredient> ingredientList = new ArrayList<>();
@@ -18,7 +19,7 @@ public class IngredientRepository implements CrudOperationsInterface<Ingredient>
         String sql = "select * from \"ingredient\"";
 
         try (
-                Connection connection = DriverManager.getConnection();
+                Connection connection = connectionDB.getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
         ) {
