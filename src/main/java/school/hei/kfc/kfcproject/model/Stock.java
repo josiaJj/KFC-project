@@ -5,12 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Stock {
-    int id;
-    float availableQty;
-    int ingredientId;
+    private int id;
+    private float availableQty;
+    private Timestamp supplyDateTime;
+    private int ingredientId;
 }

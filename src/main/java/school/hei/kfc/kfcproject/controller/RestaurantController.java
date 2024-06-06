@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/restaurants")
+@RequestMapping("/restaurants")
 public class RestaurantController {
     public final RestaurantService restaurantService;
     RestaurantController(RestaurantService restaurantService) {

@@ -1,6 +1,5 @@
 package school.hei.kfc.kfcproject.repository;
 
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 import school.hei.kfc.kfcproject.model.Restaurant;
 import school.hei.kfc.kfcproject.repository.conf.ConnectionDB;
@@ -28,7 +27,7 @@ public class RestaurantRepository implements CrudOperationsInterface<Restaurant>
         try (
                 Connection connection = connectionDB.getConnection();
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
+                ResultSet resultSet = statement.executeQuery(sql)
                 ) {
             while(resultSet.next()) {
                 Restaurant restaurant = new Restaurant();
