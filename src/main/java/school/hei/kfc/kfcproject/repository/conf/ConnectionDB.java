@@ -25,4 +25,9 @@ public class ConnectionDB {
                 connectionProperties.getPassword()
         );
     }
+    public void closeConnection() throws SQLException {
+        if (getConnection() != null && !getConnection().isClosed()) {
+            getConnection().close();
+        }
+    }
 }

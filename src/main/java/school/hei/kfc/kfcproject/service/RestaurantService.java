@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import school.hei.kfc.kfcproject.model.Restaurant;
 import school.hei.kfc.kfcproject.repository.RestaurantRepository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
