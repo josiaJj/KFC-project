@@ -33,7 +33,6 @@ public class IngredientRepository implements CrudOperationsInterface<Ingredient>
                 ingredient.setNeededQty(resultSet.getFloat("neededQty"));
                 ingredient.setUnity(resultSet.getString("unity"));
                 ingredient.setUnitPrice(resultSet.getFloat("unitPrice"));
-                ingredient.setDishId(resultSet.getInt("dishId"));
                 ingredientList.add(ingredient);
             }
         } catch (SQLException e) {

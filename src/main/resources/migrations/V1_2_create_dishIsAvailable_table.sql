@@ -6,6 +6,6 @@ CREATE TABLE "dishIsAvailable" (
 );
 
 INSERT INTO "dishIsAvailable" ("isAvailable", "restaurantId", "dishId")
-VALUES ('t', 7, 1),
-       ('f', 7, 2),
-       ('t', 8, 1);
+VALUES ('t', 3, 1),
+       ('f', 2, 2),
+       ('t', 1, 1);

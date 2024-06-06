@@ -15,5 +15,4 @@ public class Ingredient {
     float neededQty;
     String unity;
     float unitPrice;
-    int dishId;
 }
